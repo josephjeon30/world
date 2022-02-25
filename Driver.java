@@ -50,15 +50,22 @@ public class Driver{
 		            Text.go(12, 4);
 		            System.out.print("Queue:");
 
-		            for (int j = 0; j < 10; j++){
+		            for (int j = 0; j < 30; j++){
 		            	if (i + j >= playlist.length){
 		            		break;
 		            	}
-		            	Text.go(13 + j, 6);
-		            	System.out.print(strip(playlist[i + j]));
+		            	if (j < 15){
+			            	Text.go(14 + j, 6);
+			            	System.out.print(strip(playlist[i + j]));
+			            }
+			            if (j >= 15){
+			            	String temp2 = strip(playlist[i + j]);
+			            	Text.go(j - 1, WIDTH - temp2.length() - 3);
+			            	System.out.print(temp2);
+			            }
 		            }
 
-		            System.out.print("\u001b[" + (Text.WHITE + Text.BACKGROUND) + "m");
+		            System.out.print("\u001b[" + (Text.WHITE + Text.BRIGHT) + "," (Text.WHITE + Text.BACKGROUND) + "m");
 		            Text.go(9, 16);
 		            if (sc.hasNext()) 
 		            	s = sc.next();
@@ -148,11 +155,13 @@ public class Driver{
 	}
 
 	public static void scramble(String[] arr){
-		for (int i = arr.length - 1; i >= 0; i--){
-			String temp = arr[i];
-			int rand = (int) (Math.random() * (i + 1));
-			arr[i] = arr[rand];
-			arr[rand] = temp;
+		for (int j = 0; j < 10; j++){
+			for (int i = arr.length - 1; i >= 0; i--){
+				String temp = arr[i];
+				int rand = (int) (Math.random() * (i + 1));
+				arr[i] = arr[rand];
+				arr[rand] = temp;
+			}
 		}
 	}
 }
