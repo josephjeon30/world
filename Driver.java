@@ -65,7 +65,7 @@ public class Driver{
 			            }
 		            }
 
-		            System.out.print("\u001b[" + (Text.WHITE + Text.BRIGHT) + "," (Text.WHITE + Text.BACKGROUND) + "m");
+		            System.out.print("\u001b[" + (Text.WHITE + Text.BRIGHT) + "," +(Text.WHITE + Text.BACKGROUND) + "m");
 		            Text.go(9, 16);
 		            if (sc.hasNext()) 
 		            	s = sc.next();
